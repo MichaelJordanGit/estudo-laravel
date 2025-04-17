@@ -33,12 +33,7 @@ class LinkController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Link $link)
-    {
-
-        /** @var User $user*/
-
-        $user = auth()->user();
-        
+    {   
 
         return view('links.edit', compact('link'));
     }

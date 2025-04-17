@@ -39,7 +39,10 @@ class Link extends Model
         /** @var User $user */
         $swapWith = $this->user->links()
         ->where('sort', '=', $newOrder)->first();
-        
+        if (!$swapWith) {
+            return;
+        }
+    
         $this->fill(['sort' => $newOrder])->save();
         $swapWith->fill(['sort' => $order])->save();
     }
